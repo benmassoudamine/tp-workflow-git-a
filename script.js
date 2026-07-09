@@ -1,15 +1,17 @@
-const montant = document.getElementById("montant");
-const resultat = document.getElementById("resultat");
+const note=document.getElementById("note");
+const resultat=document.getElementById("resultat");
 
-montant.addEventListener("input", function () {
+note.addEventListener("input",()=>{
 
-    let note = parseFloat(montant.value);
+let montant=parseFloat(note.value);
 
-    if (!isNaN(note)) {
-        let pourboire = note * 0.20;
-        resultat.textContent = "Pourboire : " + pourboire.toFixed(2) + " DH";
-    } else {
-        resultat.textContent = "";
-    }
+if(isNaN(montant)){
+resultat.innerHTML="";
+return;
+}
+
+let pourboire=montant*0.20;
+
+resultat.innerHTML="Pourboire : "+pourboire.toFixed(2)+" DH";
 
 });
